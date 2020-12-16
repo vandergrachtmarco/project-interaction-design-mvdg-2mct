@@ -189,7 +189,7 @@ const showCurrent = queryResponse => {
 const getAPI = async(lat, lon) => {
     // Eerst bouwen we onze url op
     // http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=HIERKOMTJOUWAPPID&units=metric&lang=nl&cnt=1
-    const data = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current&appid=fafa68bb296d3af5b0c380861477de3f&units=metric`)
+    const data = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current&appid=${APIkey}&units=metric`)
         .then((r) => r.json())
         .catch((err) => console.error('an error ocorred', err))
     console.log(data)
@@ -198,7 +198,7 @@ const getAPI = async(lat, lon) => {
     showHourly(data)
     globData = data
 
-    const currentdata = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=fafa68bb296d3af5b0c380861477de3f&units=metric`)
+    const currentdata = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIkey}&units=metric`)
         .then((r) => r.json())
         .catch((err) => console.error('an error ocorred', err))
     console.log(currentdata)
@@ -209,7 +209,7 @@ const getAPI = async(lat, lon) => {
 const getAPIbyPos = async(position) => {
     // Eerst bouwen we onze url op
     // http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=HIERKOMTJOUWAPPID&units=metric&lang=nl&cnt=1
-    const data = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&exclude=current&appid=fafa68bb296d3af5b0c380861477de3f&units=metric`)
+    const data = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&exclude=current&appid=${APIkey}&units=metric`)
         .then((r) => r.json())
         .catch((err) => console.error('an error ocorred', err))
         //console.log(data)
@@ -218,7 +218,7 @@ const getAPIbyPos = async(position) => {
     showHourly(data)
     globData = data
 
-    const currentdata = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=fafa68bb296d3af5b0c380861477de3f&units=metric`)
+    const currentdata = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${APIkey}&units=metric`)
         .then((r) => r.json())
         .catch((err) => console.error('an error ocorred', err))
         //console.log(currentdata)
