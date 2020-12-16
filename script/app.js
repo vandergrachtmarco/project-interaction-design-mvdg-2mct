@@ -1,4 +1,5 @@
 var globData;
+var APIkey = config.MY_API_KEY;
 
 // _ = helper functions
 function _parseMillisecondsIntoReadableTime(timestamp) {
